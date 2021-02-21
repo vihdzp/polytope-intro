@@ -1,6 +1,13 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+
 \title{Polytope}
 \author{OfficialURL, }
 \date{February 2021}
@@ -18,6 +25,29 @@ There are multiple definitions for when a polytope is \textit{regular}, but they
 \section{Uniform polytopes}
 Intuitively, a polytope is \textit{uniform} when all of its facets are regular and all of its vertices ``look the same.'' To see what we mean, let's look at a few examples.
 
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.33333\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{Sphenomegacorona}
+  \caption{Sphenomegacorona}
+  \label{fig:polyhedra_1}
+\end{subfigure}%
+\begin{subfigure}{.33333\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{Hebesphenomegacorona}
+  \caption{Hebesphenomegacorona}
+  \label{fig:polyhedra_2}
+\end{subfigure}%
+\begin{subfigure}{.33333\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{Disphenocingulum}
+  \caption{Disphenocingulum}
+  \label{fig:polyhedra_3}
+\end{subfigure}%
+\caption{Test images!}
+\label{fig:polyhedra}
+\end{figure}
 
 
 \end{document}
