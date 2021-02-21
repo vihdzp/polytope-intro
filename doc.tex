@@ -32,29 +32,22 @@
 Welcome to the \href{https://discord.gg/invite/zMRu7T4}{Polytope Discord}!
 
 \section{What is a polytope?}
-A \textbf{polytope} is a general name for
-\textbf{polygons} (2D), \textbf{polyhedra} (3D), \textbf{polychora} (4D),
-and so on for any dimension.
+Roughly speaking, a \textbf{polytope} is an $n$-dimensional shape.
 As with many terms used on the Polytope Discord,
 the word ``polytope'' can have a few definitions which are not completely equivalent.
-All of the commonly-used ones, however, agree on the following:
+All of the commonly-used ones, however, agree:
+\begin{enumerate}
+  \item
+A polytope in $n$ dimensions (known hereafter as an $n$-polytope)
+is made of \textbf{facets} which are $(n-1)$-polytopes.
 \begin{itemize}
-\item
-  A polytope in $n$ dimensions (known hereafter as an $n$-polytope)
-  is made of \textbf{facets} which are $(n-1)$-polytopes.
-  \begin{itemize}
-  \item Polychora ($4$-polytopes) have facets which are polyhedra ($3$-polytopes),
-  \item whose facets are polygons ($2$-polytopes),
-  \item whose facets are line segments ($1$-polytopes),
-  \item whose facets are points ($0$-polytopes)!
-  \end{itemize}
-\item
-  More stuff here, although the next section might break up the list,
-  so it might be good not to format the whole def in terms of a list
-  so that we can fit in more explanations.
+\item \textbf{Points} ($0$-polytopes) are the facets of \textbf{line segments} ($1$-polytopes),
+\item which are the facets of \textbf{polygons} ($2$-polytopes),
+\item which are the facets of \textbf{polyhedra} ($3$-polytopes),
+\item which are the facets of \textbf{polychora} ($4$-polytopes), etc.
 \end{itemize}
-
-For example, consider the following triangle $\Delta$ABC.
+For the next criterion, consider the following figures ABC and DEF.
+\end{enumerate}
 
 \begin{center}
   \begin{tikzpicture}
@@ -63,14 +56,91 @@ For example, consider the following triangle $\Delta$ABC.
     \node (c) at (1,0) {C};
     \draw (a) -- (b) -- (c) -- (a);
   \end{tikzpicture}
+  \begin{tikzpicture}
+    \node (d) at (0,0) {D};
+    \node (e) at (0.5,0.866) {E};
+    \node (f) at (1,0) {F};
+    \draw (e) -- (d) -- (f);
+  \end{tikzpicture}
 \end{center}
 
-It is a polygon which contains three line segments,
-or \textbf{edges}, as they are known
-when mentioned as part of a larger polytope.
-It also contains three points, or \textbf{vertices},
-or even \textbf{verts} for short.
+ABC is a triangle, a polygon with three line segments,
+or \textbf{edges}, as they are known when mentioned as part of a larger polytope.
+It also contains three points, or \textbf{vertices}, or even \textbf{verts} for short.
 (In the polytope world, abbreviations are everywhere!)
+DEF, on the other hand, is not a triangle; it is missing an edge,
+leaving ``open ends'' at E and F which are each connected to only one edge.
+To exclude DEF and figures like it,
+we require that within a polygon, every vertex be connected to exactly two edges.
+This condition also excludes ``branches'' where more than two edges meet at a vertex.
+
+Let's generalize this rule to $n$-dimensional polytopes.
+Two 3D figures are shown below.
+
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (A0) at (1,1,1);
+    \coordinate (A1) at (1,1,-1);
+    \coordinate (A2) at (1,-1,1);
+    \coordinate (A3) at (1,-1,-1);
+    \coordinate (A4) at (-1,1,1);
+    \coordinate (A5) at (-1,1,-1);
+    \coordinate (A6) at (-1,-1,1);
+    \coordinate (A7) at (-1,-1,-1);
+    \draw[dashed,fill=cyan,opacity=0.6] (A4) -- (A5) -- (A7) -- (A6);
+    \draw[dashed,fill=magenta,opacity=0.6] (A1) -- (A5) -- (A7) -- (A3);
+    \draw[dashed,fill=yellow,opacity=0.6] (A2) -- (A6) -- (A7) -- (A3);
+    \draw[thick,fill=red,opacity=0.6] (A0) -- (A1) -- (A3) -- (A2);
+    \draw[thick,fill=green,opacity=0.6] (A0) -- (A4) -- (A6) -- (A2);
+    \draw[thick,fill=blue,opacity=0.6] (A0) -- (A4) -- (A5) -- (A1);
+  \end{tikzpicture}  
+  \begin{tikzpicture}
+    \coordinate (A0) at (1,1,1);
+    \coordinate (A1) at (1,1,-1);
+    \coordinate (A2) at (1,-1,1);
+    \coordinate (A3) at (1,-1,-1);
+    \coordinate (A4) at (-1,1,1);
+    \coordinate (A5) at (-1,1,-1);
+    \coordinate (A6) at (-1,-1,1);
+    \coordinate (A7) at (-1,-1,-1);
+    \draw[dashed,fill=cyan,opacity=0.6] (A4) -- (A5) -- (A7) -- (A6);
+    \draw[dashed,fill=magenta,opacity=0.6] (A1) -- (A5) -- (A7) -- (A3);
+    \draw[dashed,fill=yellow,opacity=0.6] (A2) -- (A6) -- (A7) -- (A3);
+    \draw[thick,fill=red,opacity=0.6] (A0) -- (A1) -- (A3) -- (A2);
+    \draw[thick,fill=green,opacity=0.6] (A0) -- (A4) -- (A6) -- (A2);
+    \draw[thick] (A4) -- (A5) -- (A1);
+    \draw[thick] (A5) -- (-1,0.2,-1);
+  \end{tikzpicture}  
+\end{center}
+
+The left figure is a cube, a polyhedron with
+six square \textbf{faces}, twelve edges, and eight vertices.
+The right is the same, but with the top face removed.
+The right figure is not a polyhedron because, like DEF, it leaves ``open ends.''
+However, in this case, the open ends are not vertices but the top four edges,
+which are each connected to only one face.
+We require that within a polyhedron, every edge be connected to exactly two faces.
+\footnote{
+  Our previous rule for polygons does not apply to the cube or to other polyhedra;
+  every vertex of the cube is connected to three edges, not two.
+  However, the rule does apply to each of the cube's faces.
+}
+
+
+
+Are you beginning to see a pattern?
+In an $n$-polytope, removing an $(n-1)$-dimensional facet
+creates ``open ends'' in the $(n-2)$-dimensional ``facets of facets,'' or \textbf{ridges}.
+Ridges are the vertices of polygons, the edges of polyhedra, the faces of polychora, and so on.
+Thus the next (uncontroversial) trait of a polytope is:
+\begin{enumerate}
+  \setcounter{enumi}{1}
+\item Every ridge must be connected to exactly two facets.
+\end{enumerate}
+
+The point and the line segment are the only $0$- and $1$-polytopes, respectively.
+To define a polygon,
+
 More specifically, its facets are the edges
 $\overline{\rm AB}$, $\overline{\rm AC}$, and $\overline{\rm BC}$,
 and \textit{their} facets are the vertices A, B, and C.
@@ -96,15 +166,15 @@ shown below.
 \end{center}
 
 Each node of the Hasse diagram represents an element of $\Delta$ABC,
-which includes both the whole triangle at the top
+including both the whole triangle at the top
 and the \textbf{null face} $\emptyset$ at the bottom.
 \footnote{$\emptyset$, also known as the \textbf{nullitope}, is a convenient edge case.
-It has no vertices or other elements,
-and it is considered to be $-1$-dimensional(!)}
+  It has no vertices or other elements,
+  and it is considered to be $-1$-dimensional!}
 Whenever two nodes of the diagram are connected,
 the higher node's element contains the lower element as a facet.
 For example, the edge $\overline{\rm AC}$ contains the vertex C,
-so their nodes are connected in the diagram with $\overline{\rm AC}$ above.
+so their nodes are connected in the diagram with $\overline{\rm AC}$ above C.
 Notice that the structure of the diagram does not depend on where the vertices are;
 a scalene triangle would have the same Hasse diagram as the equilateral $\Delta$ABC.
 A diagram considered on its own, without mention of the vertices' locations,
@@ -112,7 +182,8 @@ is also known as an \textbf{abstract polytope}.
 
 Although every polytope can be represented by a Hasse diagram,
 not every diagram represents a polytope.
-For example, consider the following arrangement in 2D and its Hasse diagram:
+For example, removing edge $\overline{\rm BC}$ from $\Delta$ABC
+produces a new figure (left) and Hasse diagram (right):
 
 \begin{center}
   \begin{tikzpicture}
@@ -136,16 +207,9 @@ For example, consider the following arrangement in 2D and its Hasse diagram:
   \end{tikzpicture}
 \end{center}
 
-The left figure is identical to the polygon $\Delta$ABC,
-but with the edge $\overline{\rm BC}$ missing.
-Likewise, the Hasse diagram on the right is identical to that of $\Delta$ABC,
-but without the node corresponding to $\overline{\rm BC}$ and all of its connections.
-Intuitively speaking, this is not a polygon because it is not ``closed,''
-i.e. its edges do not form a closed loop.
-More formally, we require that within a polygon,
-every vertex be contained in exactly two edges.
-This excludes both cases of ``open ends'' like the one above
-and cases where 
+Note, however, that this requirement applies only to polygons.
+To generalize it to $n$-polytopes,
+
 
 \section{Regular polytopes}
 There are multiple definitions for when a polytope is \textbf{regular},
@@ -229,6 +293,5 @@ A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, w
   \caption{Test images!}
   \label{fig:polyhedra}
 \end{figure}
-
 
 \end{document}
