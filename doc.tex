@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{tikz}
 
 \usepackage{graphicx}
 \graphicspath{{images/}}
@@ -10,11 +12,11 @@
 
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=blue
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=blue
 }
 
 \title{Polytope}
@@ -28,22 +30,52 @@
 \section{Introduction}
 Welcome to the \href{https://discord.gg/invite/zMRu7T4}{Polytope Discord}!
 
-\subsection{What is a polytope?}
+\section{What is a polytope?}
 A \textbf{polytope} is a general name for
 \textbf{polygons} (2D), \textbf{polyhedra} (3D), \textbf{polychora} (4D),
 and so on for any dimension.
-As with many of the terms that the Polytope Discord uses,
+As with many terms used on the Polytope Discord,
 the word ``polytope'' can have a few definitions which are not completely equivalent.
 All of the commonly-used ones, however, agree on the following:
 \begin{itemize}
 \item
   A polytope in $n$ dimensions (known hereafter as an $n$-polytope)
-  is made of \textbf{facets} which are $(n-1)$-polytopes.\\
-  Polychora ($4$-polytopes) are made of polyhedra ($3$-polytopes),\\
-  which are made of polygons ($2$-polytopes),\\
-  which are made of line segments ($1$-polytopes),\\
-  which are made of points ($0$-polytopes)!
+  is made of \textbf{facets} which are $(n-1)$-polytopes.
+  \begin{itemize}
+  \item Polychora ($4$-polytopes) have facets which are polyhedra ($3$-polytopes),
+  \item whose facets are polygons ($2$-polytopes),
+  \item whose facets are line segments ($1$-polytopes),
+  \item whose facets are points ($0$-polytopes)!
+  \end{itemize}
+\item
+  More stuff here, although the next section might break up the list,
+  so it might be good not to format the whole def in terms of a list
+  so that we can fit in more explanations.
 \end{itemize}
+
+For example, consider the following triangle ABC.
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw (0,0) node[fill=white]{$A$}
+    -- (1,0) node[fill=white]{$C$}
+    -- (0.5,0.866) node[fill=white]{$B$}
+    -- cycle;
+  \end{tikzpicture}
+\end{center}
+
+It is a polygon which contains three line segments,
+or \textbf{edges}, as they are known
+when mentioned as part of a larger polytope.
+It also contains three points, or \textbf{vertices},
+or even \textbf{verts} for short.
+(In the polytope world, abbreviations are everywhere!)
+More specifically, its facets are the edges
+$\overline{\rm AB}$, $\overline{\rm AC}$, and $\overline{\rm BC}$,
+and their facets are the vertices A, B, and C.
+We keep track of what has what as a facet using a \textbf{Hasse diagram}.
+
+
 
 \section{Regular polytopes}
 There are multiple definitions for when a polytope is \textbf{regular},
@@ -55,54 +87,54 @@ when all of its facets are regular and all of its vertices ``look the same.''
 To see what we mean, let's look at a few examples.
 
 \begin{figure}[h]
-\centering
-\begin{subfigure}{.33333\textwidth}
   \centering
-  \includegraphics[width=.5\linewidth]{tut}
-  \caption{Truncated tetrahedron}
-  \label{fig:tut}
-\end{subfigure}%
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{did}
-  \caption{Dodecadodecahedron}
-  \label{fig:did}
-\end{subfigure}%
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{snid}
-  \caption{Snub icosidodecahedron}
-  \label{fig:snid}
-\end{subfigure}%
-\caption{Three examples of uniform polytopes.}
-\label{fig:uniforms3D}
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{tut}
+    \caption{Truncated tetrahedron}
+    \label{fig:tut}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{did}
+    \caption{Dodecadodecahedron}
+    \label{fig:did}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{snid}
+    \caption{Snub icosidodecahedron}
+    \label{fig:snid}
+  \end{subfigure}%
+  \caption{Three examples of uniform polytopes.}
+  \label{fig:uniforms3D}
 \end{figure}
 
 \section{CRF polytopes}
 A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, when it is convex (without dents, holes or self-intersections) and all of its faces are regular. Let's look at a few examples.
 
 \begin{figure}[h]
-\centering
-\begin{subfigure}{.33333\textwidth}
   \centering
-  \includegraphics[width=.5\linewidth]{Sphenomegacorona}
-  \caption{Sphenomegacorona}
-  \label{fig:polyhedra_1}
-\end{subfigure}%
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{Hebesphenomegacorona}
-  \caption{Hebesphenomegacorona}
-  \label{fig:polyhedra_2}
-\end{subfigure}%
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{Disphenocingulum}
-  \caption{Disphenocingulum}
-  \label{fig:polyhedra_3}
-\end{subfigure}%
-\caption{Test images!}
-\label{fig:polyhedra}
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Sphenomegacorona}
+    \caption{Sphenomegacorona}
+    \label{fig:polyhedra_1}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Hebesphenomegacorona}
+    \caption{Hebesphenomegacorona}
+    \label{fig:polyhedra_2}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Disphenocingulum}
+    \caption{Disphenocingulum}
+    \label{fig:polyhedra_3}
+  \end{subfigure}%
+  \caption{Test images!}
+  \label{fig:polyhedra}
 \end{figure}
 
 
