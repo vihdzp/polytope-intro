@@ -74,9 +74,9 @@ or even \textbf{verts} for short.
 More specifically, its facets are the edges
 $\overline{\rm AB}$, $\overline{\rm AC}$, and $\overline{\rm BC}$,
 and \textit{their} facets are the vertices A, B, and C.
-Collectively, the vertices and edges of the triangle are its \textbf{elements}.
+Collectively, the vertices and edges of $\Delta$ABC are its \textbf{elements}.
 We keep track of which elements have which others as facets using a \textbf{Hasse diagram},
-shown below for $\Delta$ABC.
+shown below.
 
 \begin{center}
   \begin{tikzpicture}
@@ -104,7 +104,48 @@ and it is considered to be $-1$-dimensional(!)}
 Whenever two nodes of the diagram are connected,
 the higher node's element contains the lower element as a facet.
 For example, the edge $\overline{\rm AC}$ contains the vertex C,
-so their nodes are connected in the diagram with AC on top.
+so their nodes are connected in the diagram with $\overline{\rm AC}$ above.
+Notice that the structure of the diagram does not depend on where the vertices are;
+a scalene triangle would have the same Hasse diagram as the equilateral $\Delta$ABC.
+A diagram considered on its own, without mention of the vertices' locations,
+is also known as an \textbf{abstract polytope}.
+
+Although every polytope can be represented by a Hasse diagram,
+not every diagram represents a polytope.
+For example, consider the following arrangement in 2D and its Hasse diagram:
+
+\begin{center}
+  \begin{tikzpicture}
+    \node (a) at (0,0) {A};
+    \node (b) at (0.5,0.866) {B};
+    \node (c) at (1,0) {C};
+    \draw (c) -- (a) -- (b);
+  \end{tikzpicture}
+  \begin{tikzpicture}
+    \node (abc) at (0,2) {ABC};
+    \node (ab) at (-1,1) {AB};
+    \node (ac) at (0,1) {AC};
+    \node (a) at (-1,0) {A};
+    \node (b) at (0,0) {B};
+    \node (c) at (1,0) {C};
+    \node (o) at (0,-1) {$\emptyset$};
+    \draw (o) -- (a) -- (ab) -- (abc) -- (ac) -- (c)
+    (b) -- (o) -- (c)
+    (a) -- (ac);
+    \draw[preaction={draw=white, -,line width=6pt}] (ab) -- (b);
+  \end{tikzpicture}
+\end{center}
+
+The left figure is identical to the polygon $\Delta$ABC,
+but with the edge $\overline{\rm BC}$ missing.
+Likewise, the Hasse diagram on the right is identical to that of $\Delta$ABC,
+but without the node corresponding to $\overline{\rm BC}$ and all of its connections.
+Intuitively speaking, this is not a polygon because it is not ``closed,''
+i.e. its edges do not form a closed loop.
+More formally, we require that within a polygon,
+every vertex be contained in exactly two edges.
+This excludes both cases of ``open ends'' like the one above
+and cases where 
 
 \section{Regular polytopes}
 There are multiple definitions for when a polytope is \textbf{regular},
