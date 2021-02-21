@@ -73,16 +73,17 @@ or even \textbf{verts} for short.
 (In the polytope world, abbreviations are everywhere!)
 More specifically, its facets are the edges
 $\overline{\rm AB}$, $\overline{\rm AC}$, and $\overline{\rm BC}$,
-and their facets are the vertices A, B, and C.
-We keep track of what has what as a facet using a \textbf{Hasse diagram},
-which is shown below for $\Delta$ABC.
+and \textit{their} facets are the vertices A, B, and C.
+Collectively, the vertices and edges of the triangle are its \textbf{elements}.
+We keep track of which elements have which others as facets using a \textbf{Hasse diagram},
+shown below for $\Delta$ABC.
 
 \begin{center}
   \begin{tikzpicture}
-    \node (abc) at (0,2) {ABC};
-    \node (ab) at (-1,1) {AB};
-    \node (ac) at (0,1) {AC};
-    \node (bc) at (1,1) {BC};
+    \node (abc) at (0,2) {$\Delta$ABC};
+    \node (ab) at (-1,1) {$\overline{\rm AB}$};
+    \node (ac) at (0,1) {$\overline{\rm AC}$};
+    \node (bc) at (1,1) {$\overline{\rm BC}$};
     \node (a) at (-1,0) {A};
     \node (b) at (0,0) {B};
     \node (c) at (1,0) {C};
@@ -93,6 +94,17 @@ which is shown below for $\Delta$ABC.
     \draw[preaction={draw=white, -,line width=6pt}] (ab) -- (b) -- (bc);
   \end{tikzpicture}
 \end{center}
+
+Each node of the Hasse diagram represents an element of $\Delta$ABC,
+which includes both the whole triangle at the top
+and the \textbf{null face} $\emptyset$ at the bottom.
+\footnote{$\emptyset$, also known as the \textbf{nullitope}, is a convenient edge case.
+It has no vertices or other elements,
+and it is considered to be $-1$-dimensional(!)}
+Whenever two nodes of the diagram are connected,
+the higher node's element contains the lower element as a facet.
+For example, the edge $\overline{\rm AC}$ contains the vertex C,
+so their nodes are connected in the diagram with AC on top.
 
 \section{Regular polytopes}
 There are multiple definitions for when a polytope is \textbf{regular},
