@@ -58,10 +58,10 @@ For example, consider the following triangle $\Delta$ABC.
 
 \begin{center}
   \begin{tikzpicture}
-    \draw (0,0) node[fill=white]{$A$}
-    -- (1,0) node[fill=white]{$C$}
-    -- (0.5,0.866) node[fill=white]{$B$}
-    -- cycle;
+    \node (a) at (0,0) {A};
+    \node (b) at (0.5,0.866) {B};
+    \node (c) at (1,0) {C};
+    \draw (a) -- (b) -- (c) -- (a);
   \end{tikzpicture}
 \end{center}
 
