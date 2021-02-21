@@ -50,9 +50,10 @@ There are multiple definitions for when a polytope is \textbf{regular},
 but they all require every element (vertices, edges, faces, etc.) to ``look the same.''
 
 \section{Uniform polytopes}
-Intuitively, a polytope is \textbf{uniform}
-when all of its facets are regular and all of its vertices ``look the same.''
-To see what we mean, let's look at a few examples.
+General polytopes can be very complicated. Therefore, we only tend to study specific categories of polytopes. The type of polytopes we study most in this server are \textbf{uniform polytopes}.
+
+Uniformity is defined recursively. In 2D, uniform polytopes are simply the regular polygons.
+In higher dimensions, uniform polytopes are those whose facets are all uniform. To see what we mean, let's look at a few examples.
 
 \begin{figure}[h]
 \centering
@@ -76,6 +77,26 @@ To see what we mean, let's look at a few examples.
 \end{subfigure}%
 \caption{Three examples of uniform polytopes.}
 \label{fig:uniforms3D}
+\end{figure}
+
+In 3D, the uniform polytopes have already been enumerated. It turns out that, aside from the infinite families of \textbf{prisms} and \textbf{antiprisms}, there's exactly 75 uniform polyhedra.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{hep}
+  \caption{Heptagonal prism}
+  \label{fig:hep}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{heap}
+  \caption{Heptagonal antiprism}
+  \label{fig:heap}
+\end{subfigure}%
+\caption{An example of a prism and an antiprism. These can be built from any regular polygon, and made uniform in all cases.}
+\label{fig:prisms}
 \end{figure}
 
 \section{CRF polytopes}
