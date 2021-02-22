@@ -126,38 +126,31 @@ We require that within a polyhedron, every edge be connected to exactly two face
   However, the rule does apply to each of the cube's faces.
 }
 
-
-
 Are you beginning to see a pattern?
 In an $n$-polytope, removing an $(n-1)$-dimensional facet
 creates ``open ends'' in the $(n-2)$-dimensional ``facets of facets,'' or \textbf{ridges}.
 Ridges are the vertices of polygons, the edges of polyhedra, the faces of polychora, and so on.
-Thus the next (uncontroversial) trait of a polytope is:
+Thus the next trait of a polytope is:
 \begin{enumerate}
   \setcounter{enumi}{1}
 \item Every ridge must be connected to exactly two facets.
 \end{enumerate}
 
-The point and the line segment are the only $0$- and $1$-polytopes, respectively.
-To define a polygon,
-
-More specifically, its facets are the edges
-$\overline{\rm AB}$, $\overline{\rm AC}$, and $\overline{\rm BC}$,
-and \textit{their} facets are the vertices A, B, and C.
-Collectively, the vertices and edges of $\Delta$ABC are its \textbf{elements}.
-We keep track of which elements have which others as facets using a \textbf{Hasse diagram},
-shown below.
+Collectively, a polytope's vertices, edges, faces,
+and so on are known as its \textbf{elements}.
+We may keep track of which elements have which others as facets using a \textbf{Hasse diagram},
+shown below for the triangle ABC.
 
 \begin{center}
   \begin{tikzpicture}
-    \node (abc) at (0,2) {$\Delta$ABC};
-    \node (ab) at (-1,1) {$\overline{\rm AB}$};
-    \node (ac) at (0,1) {$\overline{\rm AC}$};
-    \node (bc) at (1,1) {$\overline{\rm BC}$};
-    \node (a) at (-1,0) {A};
-    \node (b) at (0,0) {B};
-    \node (c) at (1,0) {C};
-    \node (o) at (0,-1) {$\emptyset$};
+    \node (abc) at (0,3) {ABC};
+    \node (ab) at (-1,2) {AB};
+    \node (ac) at (0,2) {AC};
+    \node (bc) at (1,2) {BC};
+    \node (a) at (-1,1) {A};
+    \node (b) at (0,1) {B};
+    \node (c) at (1,1) {C};
+    \node (o) at (0,0) {$\emptyset$};
     \draw (o) -- (a) -- (ab) -- (abc) -- (ac) -- (c)
     (b) -- (o) -- (c) -- (bc) -- (abc)
     (a) -- (ac);
@@ -165,50 +158,98 @@ shown below.
   \end{tikzpicture}
 \end{center}
 
-Each node of the Hasse diagram represents an element of $\Delta$ABC,
+Each node of the Hasse diagram represents an element of ABC,
 including both the whole triangle at the top
-and the \textbf{null face} $\emptyset$ at the bottom.
-\footnote{$\emptyset$, also known as the \textbf{nullitope}, is a convenient edge case.
-  It has no vertices or other elements,
-  and it is considered to be $-1$-dimensional!}
+and the \textbf{null element} $\emptyset$ at the bottom.
+\footnote{
+  $\emptyset$, also known as the \textbf{nullitope}, is a convenient edge case.
+  It has no vertices or other elements and is considered to be $-1$-dimensional!
+}
 Whenever two nodes of the diagram are connected,
-the higher node's element contains the lower element as a facet.
-For example, the edge $\overline{\rm AC}$ contains the vertex C,
-so their nodes are connected in the diagram with $\overline{\rm AC}$ above C.
+the higher node's element contains the lower node's element as a facet.
+For example, the edge AC contains the vertex C,
+so their nodes are connected in the diagram with AC above C.
 Notice that the structure of the diagram does not depend on where the vertices are;
-a scalene triangle would have the same Hasse diagram as the equilateral $\Delta$ABC.
+a scalene triangle would have the same Hasse diagram as the equilateral ABC.
+
 A diagram considered on its own, without mention of the vertices' locations,
 is also known as an \textbf{abstract polytope}.
-
-Although every polytope can be represented by a Hasse diagram,
-not every diagram represents a polytope.
-For example, removing edge $\overline{\rm BC}$ from $\Delta$ABC
-produces a new figure (left) and Hasse diagram (right):
+For example, consider the following diagram:
 
 \begin{center}
   \begin{tikzpicture}
-    \node (a) at (0,0) {A};
-    \node (b) at (0.5,0.866) {B};
-    \node (c) at (1,0) {C};
-    \draw (c) -- (a) -- (b);
-  \end{tikzpicture}
-  \begin{tikzpicture}
-    \node (abc) at (0,2) {ABC};
-    \node (ab) at (-1,1) {AB};
-    \node (ac) at (0,1) {AC};
-    \node (a) at (-1,0) {A};
-    \node (b) at (0,0) {B};
-    \node (c) at (1,0) {C};
-    \node (o) at (0,-1) {$\emptyset$};
-    \draw (o) -- (a) -- (ab) -- (abc) -- (ac) -- (c)
-    (b) -- (o) -- (c)
-    (a) -- (ac);
-    \draw[preaction={draw=white, -,line width=6pt}] (ab) -- (b);
+    \node (s) at (0,3) {S};
+    \node (ab) at (-0.5,2) {AB};
+    \node (ba) at (0.5,2) {BA};
+    \node (a) at (-0.5,1) {A};
+    \node (b) at (0.5,1) {B};
+    \node (o) at (0,0) {$\emptyset$};
+    \draw (o) -- (a) -- (ab) -- (s) -- (ba) -- (b) -- (o)
+    (a) -- (ba);
+    \draw[preaction={draw=white, -,line width=6pt}] (b) -- (ab);
   \end{tikzpicture}
 \end{center}
 
-Note, however, that this requirement applies only to polygons.
-To generalize it to $n$-polytopes,
+It represents an abstract ``polytope'' with
+one null element, two vertices, two edges, and one face (reading from the bottom up).
+It satisfies the two conditions given thus far and is often called the digon (two-sided polygon).
+However, its two sides AB and BA contain all of the same elements (A, B, and $\emptyset$)
+and will lie on top of each other when drawn on a sheet of paper.
+For this reason, the digon is not considered a polytope.
+Likewise, a quadrilateral with two vertices in the same spot,
+which would look like a triangle when drawn, is also not a polytope.
+This leads us to the third criterion:
+
+\begin{enumerate}
+  \setcounter{enumi}{2}
+\item No two elements of the polytope may coincide:
+  \begin{enumerate}
+  \item no two elements (other than vertices and $\emptyset$) may have the same facets and
+  \item no two vertices may have the same location.
+  \end{enumerate}
+\end{enumerate}
+
+Figures which pass the first and second tests but not this third,
+such as the digon, are called \textbf{fissaries}.
+
+Note than condition 3(b) is the first which cannot be tested just from the Hasse diagram.
+Condition 1 is equivalent to requiring that the Hasse diagram be organized into ``layers,''
+with one element on the top (the whole polytope) and another on the bottom ($\emptyset$)
+
+%% The two criteria of polytopes so far mentioned can be checked
+%% just by looking at the corresponding abstract polytope.
+%% However, the next part of the definition of a polytope
+%% often cannot be checked with just the Hasse diagram.
+
+%% Although every polytope can be represented by a Hasse diagram,
+%% not every diagram represents a polytope.
+%% For example, removing edge $\overline{\rm BC}$ from $\Delta$ABC
+%% produces a new figure (left) and Hasse diagram (right):
+
+%% \begin{center}
+%%   \begin{tikzpicture}
+%%     \node (a) at (0,0) {A};
+%%     \node (b) at (0.5,0.866) {B};
+%%     \node (c) at (1,0) {C};
+%%     \draw (c) -- (a) -- (b);
+%%   \end{tikzpicture}
+%%   \begin{tikzpicture}
+%%     \node (abc) at (0,2) {ABC};
+%%     \node (ab) at (-1,1) {AB};
+%%     \node (ac) at (0,1) {AC};
+%%     \node (a) at (-1,0) {A};
+%%     \node (b) at (0,0) {B};
+%%     \node (c) at (1,0) {C};
+%%     \node (o) at (0,-1) {$\emptyset$};
+%%     \draw (o) -- (a) -- (ab) -- (abc) -- (ac) -- (c)
+%%     (b) -- (o) -- (c)
+%%     (a) -- (ac);
+%%     \draw[preaction={draw=white, -,line width=6pt}] (ab) -- (b);
+%%   \end{tikzpicture}
+%% \end{center}
+
+%% Note, however, that this requirement applies only to polygons.
+%% To generalize it to $n$-polytopes,
 
 
 \section{Regular polytopes}
