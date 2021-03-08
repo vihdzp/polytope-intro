@@ -49,9 +49,9 @@ is made of \textbf{facets} which are $(n-1)$-polytopes.
 \end{itemize}
 
 Note that an $n$-polytope must lie in $n$-dimensional space.
-A hexagon with vertices jutting out of the plane is usually not a bona fide polygon
+A square with a vertex jutting out of the plane is usually not a bona fide polygon
 but is instead given the name ``\textbf{skew} polygon.''
-If the skew hexagon is a face of a larger 3D shape,
+If the skew square is a face of a larger 3D shape,
 said 3D shape is not considered a polyhedron either,
 since its faces are not all polygons.
 Readers coming from jan Misali's video on regular polyhedra may find fault with this,
@@ -76,8 +76,8 @@ For the next criterion, consider the following figures ABC and DEF.
   \end{tikzpicture}
 \end{center}
 
-ABC is a triangle, a polygon with three line segments,
-or \textbf{edges}, as they are known when mentioned as part of a larger polytope.
+ABC is a triangle, a polygon with three line segments, or \textbf{edges},
+as they are known when mentioned as part of a larger polytope.
 It also contains three points, or \textbf{vertices}, or even \textbf{verts} for short.
 (In the polytope world, abbreviations are everywhere!)
 DEF, on the other hand, is not a triangle; it is missing an edge,
@@ -147,7 +147,6 @@ Thus the next trait of a polytope is:
   \setcounter{enumi}{1}
 \item Every ridge must be connected to exactly two facets.
 \end{enumerate}
-
 Collectively, a polytope's vertices, edges, faces,
 and so on are known as its \textbf{elements}.
 We may keep track of which elements have which others as facets using a \textbf{Hasse diagram},
@@ -185,7 +184,7 @@ Notice that the structure of the diagram does not depend on
 where the vertices of the original figure are;
 a scalene triangle would have the same Hasse diagram as the equilateral ABC.
 
-A diagram considered on its own, without mention of the vertices' locations,
+A diagram on its own, without the locations of the vertices,
 is also known as an \textbf{abstract polytope}.
 For example, consider the following diagram:
 
@@ -206,7 +205,7 @@ For example, consider the following diagram:
 It represents an abstract ``polytope'' with
 one null element, two vertices, two edges, and one face (reading from the bottom up).
 It satisfies the two conditions given thus far and is often called the digon (two-sided polygon).
-However, its two sides AB and BA contain all of the same elements (A, B, and $\emptyset$)
+However, its two edges AB and BA contain the same vertices
 and will lie on top of each other when drawn on a sheet of paper.
 For this reason, the digon is not considered a polytope.
 Likewise, a quadrilateral with two vertices in the same spot,
@@ -236,6 +235,11 @@ Finally, perhaps the most contentious part of the definition:
   A polytope is \textit{connected}, i.e.
   it is possible to reach any facet from any other facet
   by repeatedly jumping to adjacent facets.
+  \footnote{
+    Here, ``adjacent'' means ``sharing a ridge,''
+    e.g. two edges of a polygon which share a point,
+    or two faces of a polyhedron which share an edge.
+  }
 \end{enumerate}
 
 Two triangles next to each other a polygon do not make!
@@ -244,10 +248,26 @@ The question ``Are compounds polytopes?'' sparked lively discussusions
 the first few times it was brought up on the server
 and weary sighs thereafter.
 With that, the definition of a polytope is complete!
+\footnote{
+  Perhaps the most common requirement for a polytope seen elsewhere but not here
+  is convexity: not having dents, holes, or self-intersections.
+  All of those are perfectly fine and, in fact, overwhelmingly common.
+}
 
 \section{Regular polytopes}
-There are multiple definitions for when a polytope is \textbf{regular},
-but they all require every element (vertices, edges, faces, etc.) to ``look the same.''
+
+If you ask a server member what a regular polytope is,
+they might reply ``a regular polytope is flag-transitive.''
+This raises two questions: what is a flag, and what is ``-transitive?''
+To answer the first question, reconsider the Hasse diagram of triangle ABC from earlier.
+A flag of the triangle is a sequence of elements that starts with $\emptyset$ and ends with ABC,
+where each entry in the sequence contains the previous one.
+In other words, a flag is a path drawn through the diagram from bottom to top.
+For example, $\emptyset$ $\rightarrow$ B $\rightarrow$ AB $\rightarrow$ ABC is a flag.
+ABC happens to have six of them:
+starting from $\emptyset$, there are three choices of vertex,
+then two choices of which other vertex to include in the edge,
+then only one choice of ABC as the final element.
 
 \section{Uniform polytopes}
 General polytopes can be very complicated. Therefore, we only tend to study specific categories of polytopes. The type of polytopes we study most in this server are \textbf{uniform polytopes}.
