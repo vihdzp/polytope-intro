@@ -257,7 +257,7 @@ With that, the definition of a polytope is complete!
 \section{Regular polytopes}
 
 If you ask a server member what a regular polytope is,
-they might reply ``a regular polytope is flag-transitive.''
+they might reply ``a regular polytope is \textbf{flag-transitive}.''
 This raises two questions: what is a flag, and what is ``-transitive?''
 To answer the first question, reconsider the Hasse diagram of triangle ABC from earlier.
 A flag of the triangle is a sequence of elements that starts with $\emptyset$ and ends with ABC,
@@ -268,6 +268,26 @@ ABC happens to have six of them:
 starting from $\emptyset$, there are three choices of vertex,
 then two choices of which other vertex to include in the edge,
 then only one choice of ABC as the final element.
+
+Next, what is ``-transitive?''
+Note that I keep the hyphen
+because ``transitivity'' on its own is not a property;
+something needs to come before the word.
+A polytope is $x$-transitive if
+every $x$ of the polytope can be moved to any other $x$
+by some combination of rotation, reflection, and occasionally translation,
+so that the polytope as a whole looks the same afterward.
+For example, the following hexagon is vertex-transitive (or \textbf{isogonal}),
+but not edge-transitive.
+
+\begin{center}
+\includegraphics[scale=0.1]{isogonal_hexagon.png}
+\end{center}
+
+Any of the six black vertices (intersection points don't count!)
+can be moved to any other vertex with rotation or reflection.
+However, an orange edge cannot be moved to a red one
+without changing the shape, size, or orientation of the hexagon.
 
 \section{Uniform polytopes}
 General polytopes can be very complicated. Therefore, we only tend to study specific categories of polytopes. The type of polytopes we study most in this server are \textbf{uniform polytopes}.
