@@ -2,7 +2,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{tikz}
-
 \usepackage{graphicx}
 \graphicspath{{images/}}
 
@@ -33,6 +32,239 @@ Welcome to the \href{https://discord.gg/invite/zMRu7T4}{Polytope Discord}!
 
 \section{What is a polytope?}
 Roughly speaking, a \textbf{polytope} is an $n$-dimensional shape.
+A polytope in $n$ dimensions (known hereafter as an $n$-polytope)
+is made of \textbf{facets} which are $(n-1)$-polytopes.
+\begin{itemize}
+\item \textbf{Points} ($0$-polytopes) are the facets of \textbf{line segments} ($1$-polytopes),
+\item which are the facets of \textbf{polygons} ($2$-polytopes),
+\item which are the facets of \textbf{polyhedra} ($3$-polytopes),
+\item which are the facets of \textbf{polychora} ($4$-polytopes), etc.
+\end{itemize}
+Collectively, a polytope's vertices, edges, faces,
+and so on are known as its \textbf{elements}.
+
+For a more formal definition, see Section \ref{indepth}: \nameref{indepth}.
+
+\section{Types of polytopes}
+
+General polytopes can be very complicated. Therefore, we only tend to study
+specific categories of polytopes.
+
+\subsection{Isogonal polytopes}
+
+A polytope is \textbf{isogonal} or \textbf{vertex-transitive} if any vertex can be taken to any other
+vertex with a rotation or reflection such that the polytope ends up looking the same.
+Let's look at a few examples.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{dodecahedron}
+    \caption{Dodecahedron}
+    \label{fig:doe}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{truncated_cuboctahedron}
+    \caption{Truncated cuboctahedron}
+    \label{fig:girco}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{square_pyramid}
+    \caption{Square pyramid}
+    \label{fig:squippy}
+  \end{subfigure}%
+  \caption{Three polyhedra. The first two are isogonal, the third is not.}
+  \label{fig:polyhedra1}
+\end{figure}
+
+\begin{itemize}
+\item A dodecahedron is isogonal; any of its vertices can be taken to any other vertex with a rotation.
+\item A truncated cuboctahedron is also isogonal; some pairs of vertices require a reflection, but
+that's allowed.
+\item A square pyramid is not isogonal; the top vertex is not equivalent to the four base vertices.
+\end{itemize}
+
+A lot of interesting categories of polytopes are isogonal.
+
+\subsection{Regular polytopes}
+
+Regular polytopes are probably the most widely known category. For example, there are nine
+regular polyhedra\footnote{
+Readers coming from jan Misali's video on regular polyhedra may find fault with this,
+but the fact of the matter is that skew polytopes are rarely mentioned or included in our lists,
+and infinite polytopes are usually not included.
+}:
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.2\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{tet}
+    \caption{Tetrahedron}
+    \label{fig:r3_tet}
+  \end{subfigure}%
+  \begin{subfigure}{.2\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{cube}
+    \caption{Cube}
+    \label{fig:r3_cube}
+  \end{subfigure}%
+  \begin{subfigure}{.2\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{oct}
+    \caption{Octahedron}
+    \label{fig:r3_oct}
+  \end{subfigure}%
+  \begin{subfigure}{.2\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{doe}
+    \caption{Dodecahedron}
+    \label{fig:r3_doe}
+  \end{subfigure}%
+  \begin{subfigure}{.2\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{ike}
+    \caption{Icosahedron}
+    \label{fig:r3_ike}
+  \end{subfigure}%
+  
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{gad}
+    \caption{Great dodecahedron}
+    \label{fig:r3_gad}
+  \end{subfigure}%
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{sissid}
+    \caption{Small stellated\\dodecahedron}
+    \label{fig:r3_sissid}
+  \end{subfigure}%
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{gike}
+    \caption{Great icosahedron}
+    \label{fig:r3_gike}
+  \end{subfigure}%
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{gissid}
+    \caption{Great stellated\\dodecahedron}
+    \label{fig:r3_gissid}
+  \end{subfigure}%
+  \caption{The nine regular polyhedra.}
+  \label{fig:regulars3D}
+\end{figure}
+
+These polyhedra are all transitive on their vertices, edges, and faces. Formally, regularity
+requires a stricter notion known as \textbf{flag-transitivity}, which is explained in Section \ref{flag},
+but is not important in this case (it doesn't disqualify any of the polyhedra).
+
+The first five of these are \textbf{convex}, and the last four are \textbf{nonconvex}. Formally,
+the definition of convexity is "any line segment connecting two points on the surface lies entirely
+within the shape", but intuitively it can be thought of as "without dents, holes, or self-intersections"
+or as the shape a rubber band or sphere would make.
+
+\begin{itemize}
+\item In 2D, there are infinitely many regular polytopes, they are the regular polygons with any number of
+sides, including star polygons such as the pentagram.
+\item In 3D, there are the 9 regular polyhedra from above.
+\item In 4D, there are 16 regular polychora, of which 6 are convex and 10 are nonconvex.
+\item In 5D and up, there are only 3 regular polytopes in each dimension, they are members of the
+infinite families of \textbf{simplexes}, \textbf{orthoplexes}, and \textbf{hypercubes}, analogues of
+the 3D tetrahedron, octahedron, and cube, respectively.
+\end{itemize}
+
+\subsubsection{Schläfli symbols}
+
+\subsection{Uniform polytopes}
+A type of polytopes we study a lot in this server are \textbf{uniform polytopes}.
+
+Uniformity is defined recursively. In 2D, uniform polytopes are simply the regular polygons.
+In higher dimensions, uniform polytopes are the vertex-transitive polytopes whose facets are all uniform. To see what we mean, let's look at a few examples.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.33333\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{tut}
+  \caption{Truncated tetrahedron\\(tut)}
+  \label{fig:tut}
+\end{subfigure}%
+\begin{subfigure}{.33333\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{did}
+  \caption{Dodecadodecahedron\\(did)}
+  \label{fig:did}
+\end{subfigure}%
+\begin{subfigure}{.33333\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{sided}
+  \caption{Snub icosidodecadodecahedron\\(sided)}
+  \label{fig:sided}
+\end{subfigure}%
+\caption{Three examples of uniform polyhedra. They all have regular polygonal faces (corresponding to the 2D uniforms) and are vertex-transitive.}
+\label{fig:uniforms3D}
+\end{figure}
+
+In 3D, the uniform polytopes have already been enumerated. It turns out that, aside from the infinite families of \textbf{prisms} and \textbf{antiprisms}, there's exactly 75 uniform polyhedra. % TODO: Link to a listing
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{hep}
+  \caption{Heptagonal prism (hep)}
+  \label{fig:hep}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{heap}
+  \caption{Heptagonal antiprism (heap)}
+  \label{fig:heap}
+\end{subfigure}%
+\caption{An example of a prism and an antiprism. These can be built from any regular polygon, and made uniform in all cases.}
+\label{fig:prisms}
+\end{figure}
+
+In 4D and higher up, the problem of enumerating the uniforms remains unsolved. As of February 2021, we know of two infinte families plus 2194 uniform polychora. In 5D and up, we haven't yet done a thorough examination, though we know of various constructions that generate uniforms in any dimension.
+
+\subsubsection{Coxeter Diagrams}
+
+\subsubsection{Multiprisms}
+
+\subsection{CRF polytopes}
+A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, when it is convex (without dents, holes or self-intersections) and all of its faces are regular. Let's look at a few examples.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Sphenomegacorona}
+    \caption{Sphenomegacorona}
+    \label{fig:polyhedra_1}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Hebesphenomegacorona}
+    \caption{Hebesphenomegacorona}
+    \label{fig:polyhedra_2}
+  \end{subfigure}%
+  \begin{subfigure}{.33333\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Disphenocingulum}
+    \caption{Disphenocingulum}
+    \label{fig:polyhedra_3}
+  \end{subfigure}%
+  \caption{Test images!}
+  \label{fig:polyhedra}
+\end{figure}
+
+\section{In-depth definitions}
+\label{indepth}
+\subsection{Polytope}
 As with many terms used on the Polytope Discord,
 the word ``polytope'' can have a few definitions which are not completely equivalent.
 This section will list four properties of a polytope from least to most controversial.
@@ -254,7 +486,8 @@ With that, the definition of a polytope is complete!
   All of those are perfectly fine and, in fact, overwhelmingly common.
 }
 
-\section{Regular polytopes}
+\subsection{Regular polytopes and flags}
+\label{flag}
 
 If you ask a server member what a regular polytope is,
 they might reply ``a regular polytope is \textbf{flag-transitive}.''
@@ -288,88 +521,5 @@ Any of the six black vertices (intersection points don't count!)
 can be moved to any other vertex with rotation or reflection.
 However, an orange edge cannot be moved to a red one
 without changing the shape, size, or orientation of the hexagon.
-
-\section{Uniform polytopes}
-General polytopes can be very complicated. Therefore, we only tend to study specific categories of polytopes. The type of polytopes we study most in this server are \textbf{uniform polytopes}.
-
-Uniformity is defined recursively. In 2D, uniform polytopes are simply the regular polygons.
-In higher dimensions, uniform polytopes are the vertex-transitive polytopes whose facets are all uniform. To see what we mean, let's look at a few examples.
-
-\begin{figure}[H]
-\centering
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{tut}
-  \caption{Truncated tetrahedron\\(tut)}
-  \label{fig:tut}
-\end{subfigure}%
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{did}
-  \caption{Dodecadodecahedron\\(did)}
-  \label{fig:did}
-\end{subfigure}%
-\begin{subfigure}{.33333\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{snid}
-  \caption{Snub icosidodecahedron\\(snid)}
-  \label{fig:snid}
-\end{subfigure}%
-\caption{Three examples of uniform polyhedra. They all have regular polygonal faces (corresponding to the 2D uniforms) and are vertex-transitive.}
-\label{fig:uniforms3D}
-\end{figure}
-
-In 3D, the uniform polytopes have already been enumerated. It turns out that, aside from the infinite families of \textbf{prisms} and \textbf{antiprisms}, there's exactly 75 uniform polyhedra. % TODO: Link to a listing
-
-\begin{figure}[H]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{hep}
-  \caption{Heptagonal prism (hep)}
-  \label{fig:hep}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{heap}
-  \caption{Heptagonal antiprism (heap)}
-  \label{fig:heap}
-\end{subfigure}%
-\caption{An example of a prism and an antiprism. These can be built from any regular polygon, and made uniform in all cases.}
-\label{fig:prisms}
-\end{figure}
-
-In 4D and higher up, the problem of enumerating the uniforms remains unsolved. As of February 2021, we know of two infinte families plus 2194 uniform polychora. In 5D and up, we haven't yet done a thorough examination, though we know of various constructions that generate uniforms in any dimension.
-
-\subsection{Coxeter Diagrams}
-
-\subsection{Multiprisms}
-
-\section{CRF polytopes}
-A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, when it is convex (without dents, holes or self-intersections) and all of its faces are regular. Let's look at a few examples.
-
-\begin{figure}[h]
-  \centering
-  \begin{subfigure}{.33333\textwidth}
-    \centering
-    \includegraphics[width=.5\linewidth]{Sphenomegacorona}
-    \caption{Sphenomegacorona}
-    \label{fig:polyhedra_1}
-  \end{subfigure}%
-  \begin{subfigure}{.33333\textwidth}
-    \centering
-    \includegraphics[width=.5\linewidth]{Hebesphenomegacorona}
-    \caption{Hebesphenomegacorona}
-    \label{fig:polyhedra_2}
-  \end{subfigure}%
-  \begin{subfigure}{.33333\textwidth}
-    \centering
-    \includegraphics[width=.5\linewidth]{Disphenocingulum}
-    \caption{Disphenocingulum}
-    \label{fig:polyhedra_3}
-  \end{subfigure}%
-  \caption{Test images!}
-  \label{fig:polyhedra}
-\end{figure}
 
 \end{document}
