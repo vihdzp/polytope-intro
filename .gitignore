@@ -3,3 +3,4 @@
 *.gz
 *.out
 *.synctex(busy)
+*.fdb_latexmk

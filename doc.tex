@@ -4,6 +4,8 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \graphicspath{{images/}}
+\usepackage{xcolor}
+%\pagecolor[rgb]{0.8,0.76,0.7}
 
 \usepackage{float}
 \usepackage{caption}
@@ -20,8 +22,8 @@
 }
 
 \title{Polytope}
-\author{URL, Mathtician, }
-\date{February 2021}
+\author{URL, Mathtician, Galoomba,}
+\date{February-May 2021}
 
 \begin{document}
 
@@ -51,6 +53,7 @@ General polytopes can be very complicated. Therefore, we only tend to study
 specific categories of polytopes.
 
 \subsection{Isogonal polytopes}
+\label{isogonal}
 
 A polytope is \textbf{isogonal} or \textbf{vertex-transitive} if any vertex can be taken to any other
 vertex with a rotation or reflection such that the polytope ends up looking the same.
@@ -160,7 +163,7 @@ and infinite polytopes are usually not included.
 
 These polyhedra are all transitive on their vertices, edges, and faces. Formally, regularity
 requires a stricter notion known as \textbf{flag-transitivity}, which is explained in Section \ref{flag},
-but is not important in this case (it doesn't disqualify any of the polyhedra).
+but does not make a difference in this case.
 
 The first five of these are \textbf{convex}, and the last four are \textbf{nonconvex}. Formally,
 the definition of convexity is "any line segment connecting two points on the surface lies entirely
@@ -231,6 +234,54 @@ In 3D, the uniform polytopes have already been enumerated. It turns out that, as
 
 In 4D and higher up, the problem of enumerating the uniforms remains unsolved. As of February 2021, we know of two infinte families plus 2194 uniform polychora. In 5D and up, we haven't yet done a thorough examination, though we know of various constructions that generate uniforms in any dimension.
 
+\subsubsection{Armies and regiments}
+
+Take a look at four of the regular polyhedra again:
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{ike}
+    \caption{Icosahedron}
+  \end{subfigure}%
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{gad}
+    \caption{Great dodecahedron}
+  \end{subfigure}%
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{sissid}
+    \caption{Small stellated\\dodecahedron}
+  \end{subfigure}%
+  \begin{subfigure}{.25\textwidth}
+    \centering
+    \includegraphics[width=.56\linewidth]{gike}
+    \caption{Great icosahedron}
+  \end{subfigure}%
+  \caption{The four regular polyhedra in the icosahedron army.}
+  \label{fig:ike_army}
+\end{figure}
+
+You might notice that all of these have 12 vertices in the same arrangement. We call a set of polytopes
+with the same vertices an \textbf{army}. Armies are named after the convex member, in this case the
+icosahedron.
+
+Furthermore, the icosahedron and the great dodecahedron also share their edges, and so do the
+small stellated dodecahedron and the great icosahedron. We call a set of polytopes with the same edges
+a \textbf{regiment}.
+
+Regiments are useful in studying uniform and scaliform\footnote{See Section \ref{scaliform}} 
+polytopes for two reasons:
+\begin{itemize}
+  \item Uniformity and scaliformity requires all edges to be equal length, which is 
+  preserved in a regiment.
+  \item Polytopes in the same regiment have vertex figures\footnote{See Section \ref{verf}}
+  in the same army, which means regiment members can be found by faceting the vertex
+  figure, which has one less dimension and is much simpler.
+\end{itemize}
+
 \subsubsection{Coxeter Diagrams}
 
 \subsubsection{Multiprisms}
@@ -259,12 +310,55 @@ A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, w
     \label{fig:polyhedra_3}
   \end{subfigure}%
   \caption{Test images!}
-  \label{fig:polyhedra}
+  \label{fig:crf_polyhedra}
 \end{figure}
+
+\subsection{Scaliform polytopes}
+\label{scaliform}
+
+\textbf{Scaliformity} is a less strict version of uniformity. It does not require that
+all facets are uniform, only that all edges are the same length.\footnote{
+  It still requires isogonality of course.}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.3\linewidth]{tut=invtut.png}
+  \caption{One of the easiest to understand scaliform polytopes is the polychoron
+    \textit{truncated tetrahedral alterprism}. It consists of two truncated tetrahedra
+    in opposite orientations, their faces are connected by triangular cupolae, and
+    their edges are connected by tetrahedra. It is not uniform because it has non-uniform
+    facets (the triangular cupolae), but it is still isogonal and equilateral, thus it is
+    scaliform.}
+\end{figure}
+
+\section{Useful terms}
+
+\subsection{Vertex figure}
+\label{verf}
+
+A \textbf{vertex figure}, or \textbf{verf} for short, is a polytope that shows how
+the facets of another polytope are arranged around a vertex. Intuitively, it can
+be understood as the shape that gets exposed when you slice off a vertex of a polytope.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.3\linewidth]{cube_verf.png}
+  \caption{The verf of a cube is a triangle. The edges of the triangle are
+  themselves verfs of the faces of the cube.}
+\end{figure}
+
+A vertex figure has 1 less dimension than the original polytope. Verfs of polyhedra are
+polygons, verfs of polychora are polyhedra, etc.
+
+The facets of a vertex figure are the vertex figures of the facets of the original polytope,
+and generally the elements of a vertex figure are the vertex figures of the elements of the
+original polytope.
 
 \section{In-depth definitions}
 \label{indepth}
+
 \subsection{Polytope}
+
 As with many terms used on the Polytope Discord,
 the word ``polytope'' can have a few definitions which are not completely equivalent.
 This section will list four properties of a polytope from least to most controversial.
@@ -274,10 +368,10 @@ The most common definition is the strictest, requiring all four.
 A polytope in $n$ dimensions (known hereafter as an $n$-polytope)
 is made of \textbf{facets} which are $(n-1)$-polytopes.
 \begin{itemize}
-\item \textbf{Points} ($0$-polytopes) are the facets of \textbf{line segments} ($1$-polytopes),
-\item which are the facets of \textbf{polygons} ($2$-polytopes),
-\item which are the facets of \textbf{polyhedra} ($3$-polytopes),
-\item which are the facets of \textbf{polychora} ($4$-polytopes), etc.
+  \item \textbf{Points} ($0$-polytopes) are the facets of \textbf{line segments} ($1$-polytopes),
+  \item which are the facets of \textbf{polygons} ($2$-polytopes),
+  \item which are the facets of \textbf{polyhedra} ($3$-polytopes),
+  \item which are the facets of \textbf{polychora} ($4$-polytopes), etc.
 \end{itemize}
 
 Note that an $n$-polytope must lie in $n$-dimensional space.
@@ -377,7 +471,7 @@ Ridges are the vertices of polygons, the edges of polyhedra, the faces of polych
 Thus the next trait of a polytope is:
 \begin{enumerate}
   \setcounter{enumi}{1}
-\item Every ridge must be connected to exactly two facets.
+  \item Every ridge must be connected to exactly two facets.
 \end{enumerate}
 Collectively, a polytope's vertices, edges, faces,
 and so on are known as its \textbf{elements}.
@@ -446,10 +540,10 @@ This leads us to the third criterion:
 
 \begin{enumerate}
   \setcounter{enumi}{2}
-\item No two elements of a polytope may coincide:
+  \item No two elements of a polytope may coincide:
   \begin{enumerate}
-  \item no two elements (other than vertices and $\emptyset$) may have the same facets and
-  \item no two vertices may have the same location.
+    \item no two elements (other than vertices and $\emptyset$) may have the same facets and
+    \item no two vertices may have the same location.
   \end{enumerate}
 \end{enumerate}
 
