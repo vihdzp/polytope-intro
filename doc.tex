@@ -4,6 +4,7 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \graphicspath{{images/}}
+\usepackage{footmisc}
 \usepackage{xcolor}
 %\pagecolor[rgb]{0.8,0.76,0.7}
 
@@ -84,9 +85,10 @@ Let's look at a few examples.
 \end{figure}
 
 \begin{itemize}
-\item A dodecahedron is isogonal; any of its vertices can be taken to any other vertex with a rotation.
+\item A dodecahedron is isogonal; any of its vertices can be taken to any other vertex with a
+  rotation.
 \item A truncated cuboctahedron is also isogonal; some pairs of vertices require a reflection, but
-that's allowed.
+  that's allowed.
 \item A square pyramid is not isogonal; the top vertex is not equivalent to the four base vertices.
 \end{itemize}
 
@@ -162,22 +164,22 @@ and infinite polytopes are usually not included.
 \end{figure}
 
 These polyhedra are all transitive on their vertices, edges, and faces. Formally, regularity
-requires a stricter notion known as \textbf{flag-transitivity}, which is explained in Section \ref{flag},
-but does not make a difference in this case.
+requires a stricter notion known as \textbf{flag-transitivity}, which is explained in Section
+\ref{flag}, but does not make a difference in this case.
 
 The first five of these are \textbf{convex}, and the last four are \textbf{nonconvex}. Formally,
-the definition of convexity is "any line segment connecting two points on the surface lies entirely
-within the shape", but intuitively it can be thought of as "without dents, holes, or self-intersections"
-or as the shape a rubber band or sphere would make.
+the definition of convexity is "any line segment connecting two points on the surface lies
+entirely within the shape", but intuitively it can be thought of as "without dents, holes, or
+self-intersections" or as the shape a rubber band or sphere would make.
 
 \begin{itemize}
-\item In 2D, there are infinitely many regular polytopes, they are the regular polygons with any number of
-sides, including star polygons such as the pentagram.
+\item In 2D, there are infinitely many regular polytopes, they are the regular polygons with any
+number of sides, including star polygons such as the pentagram.
 \item In 3D, there are the 9 regular polyhedra from above.
 \item In 4D, there are 16 regular polychora, of which 6 are convex and 10 are nonconvex.
-\item In 5D and up, there are only 3 regular polytopes in each dimension, they are members of the
-infinite families of \textbf{simplexes}, \textbf{orthoplexes}, and \textbf{hypercubes}, analogues of
-the 3D tetrahedron, octahedron, and cube, respectively.
+\item In 5D and up, there are only 3 regular polytopes in each dimension, they are members of
+the infinite families of \textbf{simplexes}, \textbf{orthoplexes}, and \textbf{hypercubes},
+analogues of the 3D tetrahedron, octahedron, and cube, respectively.
 \end{itemize}
 
 \subsubsection{Schläfli symbols}
@@ -186,7 +188,8 @@ the 3D tetrahedron, octahedron, and cube, respectively.
 A type of polytopes we study a lot in this server are \textbf{uniform polytopes}.
 
 Uniformity is defined recursively. In 2D, uniform polytopes are simply the regular polygons.
-In higher dimensions, uniform polytopes are the vertex-transitive polytopes whose facets are all uniform. To see what we mean, let's look at a few examples.
+In higher dimensions, uniform polytopes are the vertex-transitive polytopes whose facets are
+all uniform. To see what we mean, let's look at a few examples.
 
 \begin{figure}[H]
 \centering
@@ -208,11 +211,15 @@ In higher dimensions, uniform polytopes are the vertex-transitive polytopes whos
   \caption{Snub icosidodecadodecahedron\\(sided)}
   \label{fig:sided}
 \end{subfigure}%
-\caption{Three examples of uniform polyhedra. They all have regular polygonal faces (corresponding to the 2D uniforms) and are vertex-transitive.}
+\caption{Three examples of uniform polyhedra. They all have regular polygonal faces
+  (corresponding to the 2D uniforms) and are vertex-transitive.}
 \label{fig:uniforms3D}
 \end{figure}
 
-In 3D, the uniform polytopes have already been enumerated. It turns out that, aside from the infinite families of \textbf{prisms} and \textbf{antiprisms}, there's exactly 75 uniform polyhedra. % TODO: Link to a listing
+In 3D, the uniform polytopes have already been enumerated. It turns out that, aside from the
+infinite families of \textbf{prisms} and \textbf{antiprisms}, there's exactly
+75 uniform polyhedra.
+% TODO: Link to a listing
 
 \begin{figure}[H]
 \centering
@@ -228,7 +235,8 @@ In 3D, the uniform polytopes have already been enumerated. It turns out that, as
   \caption{Heptagonal antiprism (heap)}
   \label{fig:heap}
 \end{subfigure}%
-\caption{An example of a prism and an antiprism. These can be built from any regular polygon, and made uniform in all cases.}
+\caption{An example of a prism and an antiprism. These can be built from any regular polygon,
+  and made uniform in all cases.}
 \label{fig:prisms}
 \end{figure}
 
@@ -267,20 +275,20 @@ Take a look at four of the regular polyhedra again:
   \label{fig:ike_army}
 \end{figure}
 
-You might notice that all of these have 12 vertices in the same arrangement. We call a set of polytopes
-with the same vertices an \textbf{army}. Armies are named after the convex member, in this case the
-icosahedron.
+You might notice that all of these have 12 vertices in the same arrangement. We call a set of
+polytopes with the same vertices an \textbf{army}. Armies are named after the convex member, in
+this case the icosahedron.
 
 Furthermore, the icosahedron and the great dodecahedron also share their edges, and so do the
-small stellated dodecahedron and the great icosahedron. We call a set of polytopes with the same edges
-a \textbf{regiment}.
+small stellated dodecahedron and the great icosahedron. We call a set of polytopes with the same
+edges a \textbf{regiment}.
 
-Regiments are useful in studying uniform and scaliform\footnote{See Section \ref{scaliform}} 
+Regiments are useful in studying uniform and scaliform\footnote{See Section \ref{scaliform}.} 
 polytopes for two reasons:
 \begin{itemize}
   \item Uniformity and scaliformity requires all edges to be equal length, which is 
   preserved in a regiment.
-  \item Polytopes in the same regiment have vertex figures\footnote{See Section \ref{verf}}
+  \item Polytopes in the same regiment have vertex figures\footnote{See Section \ref{verf}.}
   in the same army, which means regiment members can be found by faceting the vertex
   figure, which has one less dimension and is much simpler.
 \end{itemize}
@@ -290,7 +298,11 @@ polytopes for two reasons:
 \subsubsection{Multiprisms}
 
 \subsection{CRF polytopes}
-A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, when it is convex (without dents, holes or self-intersections) and all of its faces are regular. Let's look at a few examples.
+\label{crf}
+
+A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, when it is convex
+(without dents, holes or self-intersections) and all of its faces are regular. Let's look at a few
+examples.
 
 \begin{figure}[h]
   \centering
@@ -316,12 +328,25 @@ A polytope is called \textbf{convex regular-faced}, or \textbf{CRF} for short, w
   \label{fig:crf_polyhedra}
 \end{figure}
 
+The CRF polyhedra that are not also uniform are called the \textbf{Johnson solids}, named after
+Norman Johnson who enumerated all 92 of them.
+
+In 4D and up, the count of CRF polytopes explodes. There's thought to be at least about $10^{16}$
+% Is this number accurate?
+non-uniform CRF polychora. Because of this, people usually study subsets of CRFs.
+
 \subsection{Scaliform polytopes}
 \label{scaliform}
 
 \textbf{Scaliformity} is a less strict version of uniformity. It does not require that
 all facets are uniform, only that all edges are the same length.\footnote{
   It still requires isogonality of course.}
+
+In 3D, the scaliform polytopes are the same as the uniform polytopes, because all the polygons
+that can be faces of a scaliform polyhedron are regular and thus uniform.\footnote{
+  For a detailed explanation, see Section \ref{circum}.} But there are
+polyhedra, such as some of the Johnson solids\footnote{See Section \ref{crf}.}, that can be facets
+of scaliform polychora. So scaliform polytopes are distinct from uniform polytopes in 4D and up.
 
 \begin{figure}[H]
   \centering
@@ -359,6 +384,9 @@ original polytope.
 
 \section{In-depth definitions}
 \label{indepth}
+
+This section explains in detail some terms and definitions. If you're just starting out, you
+don't need to care about this.
 
 \subsection{Polytope}
 
@@ -460,8 +488,7 @@ The right is the same, but with the top face removed.
 The right figure is not a polyhedron because, like DEF, it leaves ``open ends.''
 However, in this case, the open ends are not vertices but the top four edges,
 which are each connected to only one face.
-We require that within a polyhedron, every edge be connected to exactly two faces.
-\footnote{
+We require that within a polyhedron, every edge be connected to exactly two faces.\footnote{
   The previous rule for polygons does not apply to the cube nor to other polyhedra;
   every vertex of the cube is connected to three edges, not two.
   However, the rule does apply to each of the cube's square faces.
@@ -500,10 +527,9 @@ shown below for the triangle ABC.
 
 Each node of the Hasse diagram represents an element of ABC,
 including both the whole triangle at the top
-and the \textbf{null element} $\emptyset$ at the bottom.
-\footnote{
+and the \textbf{null element} $\emptyset$ at the bottom.\footnote{
   $\emptyset$, also known as the \textbf{nullitope}, is a convenient edge case.
-  It has no vertices or other elements and is considered to be $-1$-dimensional!
+  It has no vertices or other elements and is considered to be $-1$-dimensional.
 }
 Whenever two nodes of the diagram are connected,
 the higher node's element contains the lower node's element as a facet.
@@ -618,5 +644,23 @@ Any of the six black vertices (intersection points don't count!)
 can be moved to any other vertex with rotation or reflection.
 However, an orange edge cannot be moved to a red one
 without changing the shape, size, or orientation of the hexagon.
+
+\subsection{Circumscribability and orbiformity}
+\label{circum}
+
+A $n$-polytope is \textbf{circumscribable} if its vertices lie on a $n-1$-sphere.
+For a polygon, this means they lie on a circle, for a polyhedron, a sphere.
+
+All elements of an isogonal spherical polytope are circumscribable. Take the example of
+faces of a polyhedron: all the vertices of the polyhedron are equivalent and thus lie on a
+sphere. A face of a polyhedron lies on a plane, and any intersection of a plane and a sphere
+is a circle. So the vertices of the face lie on a circle. This works in any dimension.
+
+A polytope is \textbf{orbiform} if it is circumscribable and all its edges are the same length.
+Examples are all scaliform (including uniform) polytopes, some of the Johnson solids\footnote{
+  See Section \ref{crf}.} and higher-dimensional CRF polytopes, and many nonconvex regular-faced
+polytopes. All orbiform polygons are regular.
+
+All elements of a scaliform polytope are orbiform.
 
 \end{document}
